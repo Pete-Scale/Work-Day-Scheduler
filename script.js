@@ -13,7 +13,7 @@ headerDate();
 // Array of time-block objects
 var schedule = [
     {
-        id: "9",
+        id: "09",
         hour: "9",
         meridiem: "AM",
         note: ""
@@ -80,13 +80,16 @@ var schedule = [
 for (var i = 0; i < schedule.length; i++) {
     var container = $('.container');
     // Creates time-block row div
-    var timeBlockRowDiv = $('<div>').attr({'class': 'time-block row'});
+    var timeBlockRowDiv = $('<div>').attr('class', 'time-block row');
     container.append(timeBlockRowDiv)[i];
     // Creates hour div 
-    var hourDiv = $('<div>').text(schedule[i].hour + ' ' + schedule[i].meridiem).attr({'class': 'col-lg-1 col-md-1 col-2 hour'}); 
+    var hourDiv = $('<div>').text(schedule[i].hour + ' ' + schedule[i].meridiem).attr('class', 'col-lg-1 col-md-1 col-2 hour'); 
     timeBlockRowDiv.append(hourDiv)[i];
-    // Creates note div
-    var textArea = $('<textarea>').attr({'id': schedule[i].id, 'class': 'col-lg-10 col-md-10 col-8 description'});
-    timeBlockRowDiv.append(textArea)[i];
-
+    // Creates textarea div
+    var textAreaDiv = $('<textarea>').attr({'id': schedule[i].id, 'class': 'col-lg-10 col-md-10 col-8 description'});
+    timeBlockRowDiv.append(textAreaDiv)[i];
+    if (schedule[i].id < dayjs().format('HH')) {
+            var past = textAreaDiv.addClass('past');
+            textAreaDiv.append(past);
+        }
 }
