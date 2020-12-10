@@ -88,8 +88,12 @@ for (var i = 0; i < schedule.length; i++) {
     // Creates textarea div
     var textAreaDiv = $('<textarea>').attr({'id': schedule[i].id, 'class': 'col-lg-10 col-md-10 col-8 description'});
     timeBlockRowDiv.append(textAreaDiv)[i];
+    // Styles textarea div according to past, present, and future
     if (schedule[i].id < dayjs().format('HH')) {
-            var past = textAreaDiv.addClass('past');
-            textAreaDiv.append(past);
-        }
+        var past = textAreaDiv.addClass('past');
+        textAreaDiv.append(past);
+    } else if (schedule[i].id == dayjs().format('HH')) {
+        var present = textAreaDiv.addClass('present');
+        textAreaDiv.append(present);
+    } 
 }
