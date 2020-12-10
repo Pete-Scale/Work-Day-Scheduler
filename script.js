@@ -67,3 +67,20 @@ var schedule = [
         note: ""
     },
 ];
+// var saveBtn = $('.saveBtn');
+
+// saveBtn.on('click', function() {
+    
+// })
+
+// function saveNotes() {
+//     localStorage.setItem("schedule", JSON.stringify(schedule));
+// }
+var container = $('.container');
+var timeBlockRow = $('<div>').attr({'class': 'time-block row'})
+var hour = $('<div>').attr({'class': 'col-lg-1 col-md-1 col-2 hour'}) 
+
+for (var i = 0; i < schedule.length; i++) {
+    // console.log(schedule[i]);
+    container.append(timeBlockRow)[i]
+}
