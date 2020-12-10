@@ -78,7 +78,7 @@ for (var i = 0; i < schedule.length; i++) {
     } else if (schedule[i].id> dayjs().format('HH')) {
         var future = textAreaDiv.addClass('future');
         textAreaDiv.append(future);
-    }
+    };
     // Creates save button
     var saveBtn = $('<button>').attr('class', 'col-lg-1 col-md-2 col-2  saveBtn');
     timeBlockRowDiv.append(saveBtn)[i];
@@ -95,18 +95,18 @@ $('.saveBtn').on('click', function(){
     localStorage.setItem(hour, note);
 }); 
 
-// Gets saved data from local storage and puts it in the created textareas
+// Load local storage by key and put the value in the textareas by id
 function setSchedule () {
     for (var i = 0; i < schedule.length; i++){
         console.log(schedule[i].id);
-        var data = localStorage.getItem(schedule[i].id);
-        console.log(data);
-        if (data == true) {
-            $('#' + schedule[i].id).val(data);
+        var saveKey = localStorage.getItem(schedule[i].id);
+        console.log(saveKey);
+        if (saveKey !== null) {
+            $('#' + schedule[i].id).val(saveKey);
         }
     }
 }
 
-// Loads today's date and saved schedule
+// Loads today's date and sets the saved schedule
 todaysDate();
 setSchedule();
