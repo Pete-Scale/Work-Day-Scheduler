@@ -4,58 +4,49 @@ dayjs.extend(window.dayjs_plugin_advancedFormat)
 // Array of time-block objects
 var schedule = [
     {
-        id: "09",
-        hour: "9",
-        meridiem: "AM",
-        note: ""
+        id: '09',
+        hour: '9',
+        meridiem: 'AM',
     },
     {
-        id: "10",
-        hour: "10",
-        meridiem: "AM",
-        note: ""
+        id: '10',
+        hour: '10',
+        meridiem: 'AM',
     },
     {
-        id: "11",
-        hour: "11",
-        meridiem: "AM",
-        note: ""
+        id: '11',
+        hour: '11',
+        meridiem: 'AM',
     },
     {
-        id: "12",
-        hour: "12",
-        meridiem: "PM",
-        note: ""
+        id: '12',
+        hour: '12',
+        meridiem: 'PM',
     },
     {
-        id: "13",
-        hour: "1",
-        meridiem: "PM",
-        note: ""
+        id: '13',
+        hour: '1',
+        meridiem: 'PM',
     },
     {
-        id: "14",
-        hour: "2",
-        meridiem: "PM",
-        note: ""
+        id: '14',
+        hour: '2',
+        meridiem: 'PM',
     },
     {
-        id: "15",
-        hour: "3",
-        meridiem: "PM",
-        note: ""
+        id: '15',
+        hour: '3',
+        meridiem: 'PM',
     },
     {
-        id: "16",
-        hour: "4",
-        meridiem: "PM",
-        note: ""
+        id: '16',
+        hour: '4',
+        meridiem: 'PM',
     },
     {
-        id: "17",
-        hour: "5",
-        meridiem: "PM",
-        note: ""
+        id: '17',
+        hour: '5',
+        meridiem: 'PM',
     },
 ];
 
@@ -64,9 +55,6 @@ function todaysDate() {
     var today = dayjs().format('dddd, MMMM Do, YYYY');
     $('#currentDay').text(today);
 }
-
-// Loads today's date
-todaysDate();
 
 // Creates the Day Planner schedule
 for (var i = 0; i < schedule.length; i++) {
@@ -87,10 +75,10 @@ for (var i = 0; i < schedule.length; i++) {
     } else if (schedule[i].id == dayjs().format('HH')) {
         var present = textAreaDiv.addClass('present');
         textAreaDiv.append(present);
-    } else if (schedule[i].id > dayjs().format('HH')) {
+    } else if (schedule[i].id> dayjs().format('HH')) {
         var future = textAreaDiv.addClass('future');
         textAreaDiv.append(future);
-    };
+    }
     // Creates save button
     var saveBtn = $('<button>').attr('class', 'col-lg-1 col-md-2 col-2  saveBtn');
     timeBlockRowDiv.append(saveBtn)[i];
@@ -98,9 +86,27 @@ for (var i = 0; i < schedule.length; i++) {
     saveBtn.append(saveBtnIcon);
 }
 
+// Click saveBtn to save to local storage
 $('.saveBtn').on('click', function(){
     var hour = $(this).siblings('textarea').attr('id');
     console.log(hour);
     var note = $(this).siblings('textarea').val();
     console.log(note);
-}) 
+    localStorage.setItem(hour, note);
+}); 
+
+// Gets saved data from local storage and puts it in the created textareas
+function setSchedule () {
+    for (var i = 0; i < schedule.length; i++){
+        console.log(schedule[i].id);
+        var data = localStorage.getItem(schedule[i].id);
+        console.log(data);
+        if (data == true) {
+            $('#' + schedule[i].id).val(data);
+        }
+    }
+}
+
+// Loads today's date and saved schedule
+todaysDate();
+setSchedule();
