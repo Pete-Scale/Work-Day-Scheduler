@@ -1,15 +1,6 @@
 // Advanced Format plugin to use Day of Month with ordinal numbers
 dayjs.extend(window.dayjs_plugin_advancedFormat)
 
-// Gets data for today's date and places it in the header
-function headerDate() {
-    var today = dayjs().format('dddd, MMMM Do, YYYY');
-    $('#currentDay').text(today);
-}
-
-// Loads today's date
-headerDate();
-
 // Array of time-block objects
 var schedule = [
     {
@@ -67,16 +58,17 @@ var schedule = [
         note: ""
     },
 ];
-// var saveBtn = $('.saveBtn');
 
-// saveBtn.on('click', function() {
-    
-// })
+// Gets data for today's date and places it in the header
+function todaysDate() {
+    var today = dayjs().format('dddd, MMMM Do, YYYY');
+    $('#currentDay').text(today);
+}
 
-// function saveNotes() {
-//     localStorage.setItem("schedule", JSON.stringify(schedule));
-// }
+// Loads today's date
+todaysDate();
 
+// Creates the Day Planner schedule
 for (var i = 0; i < schedule.length; i++) {
     var container = $('.container');
     // Creates time-block row div
@@ -102,6 +94,10 @@ for (var i = 0; i < schedule.length; i++) {
     // Creates save button
     var saveBtn = $('<button>').attr('class', 'col-lg-1 col-md-2 col-2  saveBtn');
     timeBlockRowDiv.append(saveBtn)[i];
-    var saveBtnIcon = $('<i>').attr('class', 'fas fa-lock fa-lg');
+    var saveBtnIcon = $('<i>').attr('class', 'fas fa-lock');
     saveBtn.append(saveBtnIcon);
 }
+
+$('.saveBtn').on('click', function(){
+
+}) 
