@@ -88,11 +88,11 @@ for (var i = 0; i < schedule.length; i++) {
 
 // Click saveBtn to save to local storage
 $('.saveBtn').on('click', function(){
-    var hour = $(this).siblings('textarea').attr('id');
-    console.log(hour);
-    var note = $(this).siblings('textarea').val();
-    console.log(note);
-    localStorage.setItem(hour, note);
+    var saveKey = $(this).siblings('textarea').attr('id');
+    console.log(saveKey);
+    var saveValue = $(this).siblings('textarea').val();
+    console.log(saveValue);
+    localStorage.setItem(saveKey, saveValue);
 }); 
 
 // Load local storage by key and put the value in the textareas by id
@@ -101,7 +101,7 @@ function setSchedule () {
         console.log(schedule[i].id);
         var saveKey = localStorage.getItem(schedule[i].id);
         console.log(saveKey);
-        if (saveKey !== null) {
+        if (saveKey) {
             $('#' + schedule[i].id).val(saveKey);
         }
     }
