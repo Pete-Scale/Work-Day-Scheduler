@@ -99,4 +99,9 @@ for (var i = 0; i < schedule.length; i++) {
         var future = textAreaDiv.addClass('future');
         textAreaDiv.append(future);
     };
+    // Creates save button
+    var saveBtn = $('<button>').attr('class', 'col-lg-1 col-md-1 col-2  saveBtn');
+    timeBlockRowDiv.append(saveBtn)[i];
+    var saveBtnIcon = $('<i>').attr('class', 'fas fa-lock');
+    saveBtn.append(saveBtnIcon);
 }
