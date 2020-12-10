@@ -95,5 +95,8 @@ for (var i = 0; i < schedule.length; i++) {
     } else if (schedule[i].id == dayjs().format('HH')) {
         var present = textAreaDiv.addClass('present');
         textAreaDiv.append(present);
-    } 
+    } else if (schedule[i].id > dayjs().format('HH')) {
+        var future = textAreaDiv.addClass('future');
+        textAreaDiv.append(future);
+    };
 }
