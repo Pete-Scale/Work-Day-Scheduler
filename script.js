@@ -1,6 +1,11 @@
+// Advanced Format plugin to use Day of Month with ordinal numbers
 dayjs.extend(window.dayjs_plugin_advancedFormat)
 
+// Gets data for today's date and places it in the header
 function headerDate() {
-    console.log(dayjs().format('dddd, MMMM Do, YYYY'));
+    var today = dayjs().format('dddd, MMMM Do, YYYY');
+    $('#currentDay').text(today);
 }
-headerDate()
+
+// Loads today's date
+headerDate();
