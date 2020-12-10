@@ -83,10 +83,10 @@ for (var i = 0; i < schedule.length; i++) {
     var timeBlockRowDiv = $('<div>').attr('class', 'time-block row');
     container.append(timeBlockRowDiv)[i];
     // Creates hour div 
-    var hourDiv = $('<div>').text(schedule[i].hour + ' ' + schedule[i].meridiem).attr('class', 'col-lg-1 col-md-1 col-2 hour'); 
+    var hourDiv = $('<div>').text(schedule[i].hour + ' ' + schedule[i].meridiem).attr('class', 'col-lg-1 col-md-2 col-2 hour'); 
     timeBlockRowDiv.append(hourDiv)[i];
     // Creates textarea div
-    var textAreaDiv = $('<textarea>').attr({'id': schedule[i].id, 'class': 'col-lg-10 col-md-10 col-8 description'});
+    var textAreaDiv = $('<textarea>').attr({'id': schedule[i].id, 'class': 'col-lg-10 col-md-8 col-8 description'});
     timeBlockRowDiv.append(textAreaDiv)[i];
     // Styles textarea div according to past, present, and future
     if (schedule[i].id < dayjs().format('HH')) {
@@ -100,8 +100,8 @@ for (var i = 0; i < schedule.length; i++) {
         textAreaDiv.append(future);
     };
     // Creates save button
-    var saveBtn = $('<button>').attr('class', 'col-lg-1 col-md-1 col-2  saveBtn');
+    var saveBtn = $('<button>').attr('class', 'col-lg-1 col-md-2 col-2  saveBtn');
     timeBlockRowDiv.append(saveBtn)[i];
-    var saveBtnIcon = $('<i>').attr('class', 'fas fa-lock');
+    var saveBtnIcon = $('<i>').attr('class', 'fas fa-lock fa-lg');
     saveBtn.append(saveBtnIcon);
 }
