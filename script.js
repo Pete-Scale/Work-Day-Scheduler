@@ -101,4 +101,6 @@ for (var i = 0; i < schedule.length; i++) {
 $('.saveBtn').on('click', function(){
     var hour = $(this).siblings('textarea').attr('id');
     console.log(hour);
+    var note = $(this).siblings('textarea').val();
+    console.log(note);
 }) 
