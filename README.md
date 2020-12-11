@@ -2,7 +2,7 @@
 
 ![Work Day Scheduler Image](./assets/work_day_scheduler.png)
 
-A simple calendar application that allows a user to save events for each hour of the day from 9-5. A work day scheduler!
+A simple work day scheduler that allows you to conveniently save events!
 
 ## Table of Contents
 [Description](#description)
@@ -12,6 +12,16 @@ A simple calendar application that allows a user to save events for each hour of
 [Usage](#usage)
 
 [Credits](#credits)
+
+---
+
+## Description
+
+A simple calendar application that allows the user to save events for each hour of the day from 9-5.
+
+By modifying starter code, this app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+
+Using the [Day.js](https://day.js.org/) library this app updates the current date and time.
 
 ---
 
