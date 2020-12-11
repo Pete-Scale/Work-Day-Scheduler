@@ -4,7 +4,11 @@
 
 A simple work day scheduler that allows you to conveniently save events!
 
+---
+
 https://pete-scale.github.io/work-day-scheduler/
+
+---
 
 ## Table of Contents
 [Description](#description)
@@ -48,4 +52,16 @@ Using the [Day.js](https://day.js.org/) library this app updates the current dat
 ---
 
 ## Usage
+
+* Open the Work Day Scheduler app by clicking the link https://pete-scale.github.io/work-day-scheduler/
+
+* Click on the "Time block" field to type in an event you wish you save
+
+* Using your keyboard type out the event
+
+* Click the "Save" button to save the text in the corresponding "Time block"
+
+* Refresh the page to update the scheduler's current date and time
+
+---
 
