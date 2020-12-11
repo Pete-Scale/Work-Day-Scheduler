@@ -65,3 +65,15 @@ Using the [Day.js](https://day.js.org/) library this app updates the current dat
 
 ---
 
+## Credits
+
+Special thanks to Josh and the gang for their help!
+
+Also thanks to Nick for the tutor session!
+
+Also also thanks to my sister for helping me tweak my "retrieving from local storage" function!
+
+https://www.w3schools.com/
+
+https://day.js.org/
+
